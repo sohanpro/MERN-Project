@@ -1,0 +1,60 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+export default function Table
+() {
+  return (
+    <div>
+        <table class="table-primary">
+
+<tr>
+    <td>
+    <div className="card">
+<h5 className="card-header">Featured</h5>
+<div className="card-body">
+<img src="/Images/food.jpeg" alt="Food" width={200} height={200}></img>
+
+<h5 className="card-title">Special title treatment</h5>
+<p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<Link to="/" className="btn btn-primary">Go somewhere</Link>
+</div>
+</div>
+    </td>
+    <td>
+    <div className="card">
+<h5 className="card-header">Featured</h5>
+<div className="card-body">
+<h5 className="card-title">Special title treatment</h5>
+<p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<Link to="/" className="btn btn-primary">Go somewhere</Link>
+</div>
+</div>
+    </td>
+
+</tr>
+<tr>
+    <td>
+    <div className="card">
+<h5 className="card-header">Featured</h5>
+<div className="card-body">
+<h5 className="card-title">Special title treatment</h5>
+<p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<Link to="/" className="btn btn-primary">Go somewhere</Link>
+</div>
+</div>
+    </td>
+    <td>
+    <div className="card">
+<h5 className="card-header">Featured</h5>
+<div className="card-body">
+<h5 className="card-title">Special title treatment</h5>
+<p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+<Link to="/" className="btn btn-primary">Go somewhere</Link>
+</div>
+</div>
+    </td>
+
+</tr>
+</table>
+    </div>
+  )
+}
