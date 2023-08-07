@@ -12,9 +12,9 @@ export default function Footer() {
     </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-      <li class="ms-3"><Link class="text-muted" to="https://www.flaticon.com/free-icons/facebook"><img src='../Images/facebook.png' style={{height:'25px', width:'25px'}}></img></Link></li>
-      <li class="ms-3"><Link class="text-muted" to="https://www.flaticon.com/free-icons/facebook"><img src='../Images/github.png' style={{height:'25px', width:'25px'}}></img></Link></li>
-      <li class="ms-3"><Link class="text-muted" to="https://www.flaticon.com/free-icons/facebook"><img src='../Images/linkedin.png' style={{height:'25px', width:'25px'}}></img></Link></li>
+      <li class="ms-3"><Link class="text-muted" to="https://www.flaticon.com/free-icons/facebook"><img src='../Images/facebook.png' style={{height:'25px', width:'25px'}} alt='fb'></img></Link></li>
+      <li class="ms-3"><Link class="text-muted" to="https://www.flaticon.com/free-icons/facebook"><img src='../Images/github.png' style={{height:'25px', width:'25px'}} alt='git'></img></Link></li>
+      <li class="ms-3"><Link class="text-muted" to="https://www.flaticon.com/free-icons/facebook"><img src='../Images/linkedin.png' style={{height:'25px', width:'25px'}} alt='linkdin'></img></Link></li>
     </ul>
   </footer></div>
   )
