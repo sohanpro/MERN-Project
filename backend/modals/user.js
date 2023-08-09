@@ -23,9 +23,16 @@ const userAccount = new Schema(
                 },
                 
             date:{
-            type:String,
-             required:true
+            type:Date,
+             default:Date.now
         },
+        mobile:
+        {
+            type:String,
+            required:true
+        }
         
     }
-)
+);
+const model = mongoose.model('user',userAccount)
+module.exports = model

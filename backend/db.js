@@ -10,7 +10,7 @@ async function connection() {
     console.log('Connected successfully to MongoDB hi');
     const FetchData = await mongoose.connection.db.collection("admin");
     const data = await FetchData.find({}).toArray()
-    console.log()
+    console.log(data)
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);
   }
