@@ -18,6 +18,9 @@ export default function Navbar() {
               <Link className="nav-link" to="/login">Login</Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link" to="/SignUp" tabIndex="-1">SignUp</Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="#" tabIndex="-1">LogOut</Link>
             </li>
           </ul>

@@ -30,10 +30,13 @@ router.post('/createuser',[
                 
             }
         );
-        res.json({success:true})
+        res.json({success:true,
+        message:"User Account Created succesfully"})
+        
     } catch (error) {
         console.log(error)
         res.json({success:false})
+        
     }
 });
 

@@ -8,15 +8,14 @@ export default function Carousel() {
           <img
             src="https://source.unsplash.com/random/?chowmein"
             className="d-block w-100"
-            style={{ objectFit: 'cover', height: '800px' }}
-            alt="..."
+            style={{ objectFit: 'cover', height: '600px' }} alt='food'
           />
         </div>
         <div className="carousel-item">
           <img
             src="https://source.unsplash.com/random/?burger"
             className="d-block w-100"
-            style={{ objectFit: 'cover', height: '800px' }}
+            style={{ objectFit: 'cover', height: '600px' }}
             alt="..."
           />
         </div>
@@ -24,7 +23,7 @@ export default function Carousel() {
           <img
             src="https://source.unsplash.com/random/?pizza"
             className="d-block w-100"
-            style={{ objectFit: 'cover', height: '800px' }}
+            style={{ objectFit: 'cover', height: '600px' }}
             alt="..."
           />
         </div>
