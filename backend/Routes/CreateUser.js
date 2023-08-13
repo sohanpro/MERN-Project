@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const {body, validationResult} = require('express-validator');
- const User = require('../modals/user')
+ const User = require('../modals/user');
+const { Navigate } = require('react-router-dom');
  //const mongoose = require('mongoose');
 
 
@@ -61,16 +62,24 @@ router.post('/loginuser',[
                 password
             }
         );
+        
         if (!usercreds)
         {
+            alert("Oh No!!! This is not your Account, Use valid credentials");
             return res.status(401).json({errors:"Oh No!!! This is not your Account, Use valid credentials"})
+            
         }
-        res.json({success:true,
-        message:"Hi",email})
+        else if(usercreds)
+        {
+            //Navigate("/");
+           return res.json({success:true,
+                message:"Hi",email})
+        }
+        
             
     } catch (error) {
         console.log(error)
-        res.json({success:false})
+        res.json({success:false,messege:"error",error})
         
     }
 });

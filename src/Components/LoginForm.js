@@ -1,9 +1,11 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function () {
     const [creds, setcreds] = useState({email:"",password:""})
-
+    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+    const navigate = useNavigate();
 
    async function HandleSubmit(event)
     {
@@ -24,14 +26,28 @@ export default function () {
         
         if(!json.success)
         {
-          console.log(json);
+          console.log("error:",json);
           alert("Enter valid credentials")
         }
-        else{
-            console.log("Welcome Back! ",requestData.email)
+        else if(json.success)
+        setShowSuccessAlert(true)
+        navigate("/");
+        return (
+          <div>
+            {showSuccessAlert && ( // Conditionally render the success alert
+              <div class="alert alert-success" role="alert">
+                <h2 class="alert-heading">Welcome Back!!! {requestData.email}</h2>
+              </div>
+            )}
+      
+            {/* Rest of your JSX */}
+          </div>
+        )
+        
+            
         }
       
-    }
+    
     function onChange(event)
 {
   setcreds({...creds,[event.target.name]:event.target.value})
@@ -96,7 +112,7 @@ export default function () {
               <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
                 <img src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=740&t=st=1691911823~exp=1691912423~hmac=f666d89299c84abfbacfee8046ab5eb62443786f1eb99ab2e24aff9090c1af2d"
-                  className="img-fluid" alt="Sample image" />
+                  className="img-fluid" alt="Sample" />
 
               </div>
             </div>
@@ -108,4 +124,4 @@ export default function () {
 </section>
     </div>
   )
-}
+  }
