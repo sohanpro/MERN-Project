@@ -7,10 +7,12 @@ async function connection() {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log('Connected successfully to MongoDB hi');
-    const FetchData = await mongoose.connection.db.collection("admin");
-    const data = await FetchData.find({}).toArray()
-    console.log()
+    console.log('Connected successfully to MongoDB');
+
+    const adminCollection = mongoose.connection.db.collection("admin");
+    const data = await adminCollection.find({}).toArray();
+
+    //console.log('Fetched Data:', data);
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);
   }
