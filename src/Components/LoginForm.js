@@ -1,21 +1,19 @@
 import React,{useState} from 'react'
-import { Link } from 'react-router-dom'
-export default function SignUpform() {
-    const [creds, setcreds] = useState({name:"",email:"shsohan",mobile:"",password:"",repeatPassword:"",location:""})
+import { Link } from 'react-router-dom';
+
+export default function () {
+    const [creds, setcreds] = useState({email:"",password:""})
 
 
    async function HandleSubmit(event)
     {
         event.preventDefault();
        let requestData = {
-          name:creds.name,
+          
               email:creds.email,
-              mobile:creds.mobile,
               password:creds.password,
-              repeatPassword:creds.repeatPassword,
-              location:creds.location
         }
-        const response = await fetch('http://localhost:5000/createuser',{
+        const response = await fetch('http://localhost:5000/loginuser',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -23,11 +21,14 @@ export default function SignUpform() {
             body:JSON.stringify(requestData)
         })
         const json = await response.json()
-        console.log("Hi:",requestData); 
+        
         if(!json.success)
         {
           console.log(json);
           alert("Enter valid credentials")
+        }
+        else{
+            console.log("Welcome Back! ",requestData.email)
         }
       
     }
@@ -37,8 +38,8 @@ export default function SignUpform() {
   console.log(setcreds)
 }
   return (
-    <>
-       <section className="vh-100 bg-dark text-light" >
+    <div>
+        <section className="vh-100 bg-dark text-light" >
   <div className="container h-100" style={{backgroundColor: '#eee' }}>
     <div className="row d-flex justify-content-center align-items-center h-100">
       <div className="col-lg-12 col-xl-11">
@@ -52,35 +53,15 @@ export default function SignUpform() {
                 <form className="mx-1 mx-md-4" onSubmit={HandleSubmit}>
 
                   <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <i className="fas fa-user fa-lg me-3 fa-fw text-light"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="text" name='name' value={creds.name} onChange={onChange} className="form-control text-light"></input>
-                      <label className="form-label text-light" htmlFor="form3Example1c">Your Name</label>
-                    </div>
-                  </div>
-
-                  <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <i className="fas fa-envelope fa-lg me-3 fa-fw text-light"></i>
                     <div className="form-outline flex-fill mb-0">
                       <input type="email" id="email" name='email' value={creds.email} onChange={onChange} className="form-control text-light" />
                       <label className="form-label text-light" htmlFor="form3Example3c">Your Email</label>
                     </div>
                   </div>
-                  <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <i className="fas fa-lock fa-lg me-3 fa-fw text-light"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="text" id="mobile" name='mobile' value={creds.mobile} onChange={onChange} className="form-control text-light" />
-                      <label className="form-label text-light" htmlFor="form3Example4c">Mobile Number</label>
-                    </div>
-                  </div>
+                  
 
-                  <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <i className="fas fa-lock fa-lg me-3 fa-fw text-light"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="text" id="location" name='location' value={creds.location} onChange={onChange} className="form-control text-light" />
-                      <label className="form-label text-light" htmlFor="form3Example4c">Location</label>
-                    </div>
-                  </div>
+                  
 
                   <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <i className="fas fa-lock fa-lg me-3 fa-fw text-light"></i>
@@ -90,13 +71,7 @@ export default function SignUpform() {
                     </div>
                   </div>
 
-                  <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <i className="fas fa-key fa-lg me-3 fa-fw text-light"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="password" id="Repeatpassword" name='repeatPassword' value={creds.repeatPassword} onChange={onChange} className="form-control text-light" />
-                      <label className="form-label text-light" htmlFor="form3Example4cd">Repeat your password</label>
-                    </div>
-                  </div>
+                  
 
                   <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
@@ -106,11 +81,11 @@ export default function SignUpform() {
                   </div>
                     <div className='container'>
                   <div className="d-flex justify-content-left mx-4 mb-3 mb-lg-4">
-                    <button type="submit" className="btn btn-primary bg-success">Register</button>
+                    <button type="submit" className="btn btn-primary bg-success">Login</button>
                   </div>
                   <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                  <label className="form-check-label text-light">Already have a account! Please LogIn</label><br/>
-                    <Link to="/Login" className="m-3 btn btn-primary bg-danger"  >Login</Link>
+                  <label className="form-check-label text-light">Don't have an account?</label><br/>
+                    <Link to="/SignUp" className="m-3 btn btn-primary bg-danger"  >Register</Link>
                   </div>
 
                   </div>
@@ -120,7 +95,7 @@ export default function SignUpform() {
               </div>
               <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                <img src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=740&t=st=1691911823~exp=1691912423~hmac=f666d89299c84abfbacfee8046ab5eb62443786f1eb99ab2e24aff9090c1af2d"
                   className="img-fluid" alt="Sample image" />
 
               </div>
@@ -131,7 +106,6 @@ export default function SignUpform() {
     </div>
   </div>
 </section>
-
-    </>
+    </div>
   )
 }
