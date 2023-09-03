@@ -25,16 +25,13 @@ export default function SignUpform() {
             body:JSON.stringify(requestData)
         })
         const json = await response.json()
-<<<<<<< HEAD
-        console.log("Data:",requestData); 
-=======
+
         console.log("Hi:",json); 
         if(json.success)
       {
         setSuccessMessageVisible(true);
         Navigate('/login')
       }
->>>>>>> 0986575e3a20529499c3542fe3b2c5d61fdc1502
         if(!json.success)
         {
           console.log(json);
