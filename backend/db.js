@@ -9,10 +9,18 @@ async function connection() {
     });
     console.log('Connected successfully to MongoDB');
 
-    const adminCollection = mongoose.connection.db.collection("admin");
-    const data = await adminCollection.find({}).toArray();
+    const adminCollection = await mongoose.connection.db.collection("admin");
 
-    //console.log('Fetched Data:', data);
+    const data = await adminCollection.find({}).toArray() 
+       
+        const foodCatagoryData = await mongoose.connection.db.collection("Foodcategory");
+        const CatData = await foodCatagoryData.find({}).toArray()
+        global.CatagoryData = CatData;
+       
+        global.food_items = data;
+        //console.log('Fetched Data:', global.food_items);
+      
+    
   } catch (error) {
     console.error('Error connecting to MongoDB:', error);
   }
