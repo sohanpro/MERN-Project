@@ -1,9 +1,11 @@
 import React,{useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export default function SignUpform() {
-    const [creds, setcreds] = useState({name:"",email:"shsohan",mobile:"",password:"",repeatPassword:"",location:""})
-
-
+    const [creds, setcreds] = useState({name:"",email:"",mobile:"",password:"",repeatPassword:"",location:""})
+    const Navigate = useNavigate();
+    //const history = useHistory();
+    const [successMessageVisible, setSuccessMessageVisible] = useState(false);
    async function HandleSubmit(event)
     {
         event.preventDefault();
@@ -23,7 +25,16 @@ export default function SignUpform() {
             body:JSON.stringify(requestData)
         })
         const json = await response.json()
+<<<<<<< HEAD
         console.log("Data:",requestData); 
+=======
+        console.log("Hi:",json); 
+        if(json.success)
+      {
+        setSuccessMessageVisible(true);
+        Navigate('/login')
+      }
+>>>>>>> 0986575e3a20529499c3542fe3b2c5d61fdc1502
         if(!json.success)
         {
           console.log(json);
@@ -106,7 +117,25 @@ export default function SignUpform() {
                   </div>
                     <div className='container'>
                   <div className="d-flex justify-content-left mx-4 mb-3 mb-lg-4">
-                    <button type="submit" className="btn btn-primary bg-success">Register</button>
+                    <button onClick ={successMessageVisible && (
+        <div className="modal">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Registration Successful</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onSubmit={() => setSuccessMessageVisible(false)}
+                ></button>
+              </div>
+              <div className="modal-body">
+                <p>Your registration was successful. You can now log in.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )} type="submit" className="btn btn-primary bg-success">Register</button>
                   </div>
                   <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                   <label className="form-check-label text-light">Already have a account! Please LogIn</label><br/>
@@ -130,6 +159,8 @@ export default function SignUpform() {
       </div>
     </div>
   </div>
+  
+  
 </section>
 
     </>
