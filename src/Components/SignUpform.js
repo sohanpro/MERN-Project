@@ -23,7 +23,7 @@ export default function SignUpform() {
             body:JSON.stringify(requestData)
         })
         const json = await response.json()
-        console.log("Hi:",requestData); 
+        console.log("Data:",requestData); 
         if(!json.success)
         {
           console.log(json);
