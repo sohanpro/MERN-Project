@@ -6,7 +6,7 @@ import { CardContextName,CardContextimage,CardContextOptions,CardContextdescript
 export default function SingleCard(props) {
  const name  = useContext(CardContextName)
  const Image = useContext(CardContextimage)
- const option = useContext(CardContextOptions)
+ 
  const description = useContext(CardContextdescription);
 
   return (
@@ -18,7 +18,10 @@ export default function SingleCard(props) {
           <h5 className="card-title">{name}</h5>
           <p className="card-text">{description}</p>
           <div className='container w-100' style={{ marginBottom: '10px', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-            <Quantity /><FoodSize />
+          <label>Quantity:</label>
+            <Quantity />
+            <label>Size:</label>
+            <FoodSize />
             <div className='d-inline h-100 fs-5'>
             Total Prize:
           </div>
