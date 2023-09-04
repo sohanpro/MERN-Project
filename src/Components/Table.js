@@ -2,29 +2,19 @@ import React from 'react'
 
 import SingleCard from './SingleCard'
 export default function Table
-() {
+(props) {
   return (
     <div>
-        <table class="table-primary">
+        <table class="table-primary" className="col-12 col-md-6 col-lg-3">
 
 <tr>
     <td>
-    <SingleCard/>
+    <SingleCard detail={{...props}}/>
     </td>
-    <td>
-    <SingleCard/>
-    </td>
+    
 
 </tr>
-<tr>
-    <td>
-    <SingleCard/>
-    </td>
-    <td>
-    <SingleCard/>
-    </td>
 
-</tr>
 </table>
     </div>
   )
